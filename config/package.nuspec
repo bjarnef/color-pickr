@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Our.Umbraco.ColorPickr</id>
+    <version>1.0.0</version>
+    <title>ColorPickr</title>
+    <authors>Bjarne Fyrstenborg</authors>
+    <owners>Bjarne Fyrstenborg</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/bjarnef/color-pickr</projectUrl>
+    <iconUrl></iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Simple property editor for picking colors.</description>
+    <tags>Umbraco, Color, Picker</tags>
+    <releaseNotes>
+v1.0.0
+Initial release
+    </releaseNotes>
+  </metadata>
+  <files>
+    <file src="..\app\App_Plugins\Switcher\**\*.*" target="content\App_Plugins\Switcher" />
+  </files>
+</package>

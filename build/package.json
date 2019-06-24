@@ -1,0 +1,28 @@
+{
+  "name": "Our.Umbraco.ColorPickr",
+  "version": "1.0.0",
+  "url": "https://github.com/bjarnef/color-pickr",
+  "license": "MIT",
+  "readme": "Simple property editor for picking colors.",
+  "keywords": [
+    "umbraco",
+    "color",
+    "picker"
+  ],
+  "author": {
+    "name": "Bjarne Fyrstenborg",
+    "url": "https://github.com/bjarnef"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjarnef/color-pickr"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-nuget": "^0.3.1",
+    "grunt-zip": "^0.18.1",
+    "grunt-umbraco-package": "1.0.0",
+    "grunt-contrib-clean": "^2.0.0"
+  }
+}
