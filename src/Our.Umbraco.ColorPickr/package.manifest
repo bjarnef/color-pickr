@@ -1,0 +1,27 @@
+{
+    propertyEditors: [
+    {
+        alias: "Our.Umbraco.ColorPickr",
+        name: "Color Pickr",
+        editor:{
+            view: "~/App_Plugins/Our.Umbraco.ColorPickr/editor.html",
+            valueType: "STRING"
+        },
+        prevalues: {
+            fields:[
+                {
+                   label: "Inline",
+                   description: "Show color picker as inline.",
+                   key: "inlineMode",
+                   view: "boolean"
+                }
+            ]
+        }
+  	}],
+  	javascript: [
+    	"~/App_Plugins/Our.Umbraco.ColorPickr/editor.controller.js"
+	],
+    css: [
+        "~/App_Plugins/Our.Umbraco.ColorPickr/styles.css"
+    ]
+}
