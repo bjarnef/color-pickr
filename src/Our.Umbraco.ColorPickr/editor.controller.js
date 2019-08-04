@@ -1,7 +1,9 @@
 angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", function ($scope, assetsService, localizationService, angularHelper) {
 
     const vm = this;
+    let colorPickerRef = null;
 
+    vm.setup = setup;
     vm.cancel = cancel;
     vm.save = save;
     
@@ -36,6 +38,11 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
         }
     }
 
+    function setup(instance) {
+        console.log("setup", instance);
+        colorPickerRef = instance;
+    }
+
     function cancel(values) {
         console.log("cancel", values);
     }
@@ -52,7 +59,7 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
 
         configureDefaults();
 
-        
+
     }
 
     init();

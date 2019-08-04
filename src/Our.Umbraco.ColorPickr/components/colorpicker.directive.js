@@ -6,7 +6,8 @@
 		controller: ColorPickerController,
 		bindings: {
             ngModel: '<',
-            //options: '<',
+            options: '<',
+            onSetup: '&?',
             onInit: '&?',
             onHide: '&?',
             onShow: '&?',
@@ -41,34 +42,29 @@
         };
 
 		function grabElementAndRun() {
-			/*$timeout(function() {
-                const element = $element.find('.color-picker')[0];
-				setColorPicker(element);
-            }, 0, true);*/
 
             localizationService.localizeMany(["general_clear", "general_cancel", "buttons_save"]).then(function (values) {
                 labels.clear = values[0];
                 labels.cancel = values[1];
                 labels.save = values[2];
             });
+
+			$timeout(function() {
+                const element = $element.find('.color-picker')[0];
+				setColorPicker(element);
+            }, 0, true);
             
-            // Simple example, see optional options for more configuration.
-            const pickr = Pickr.create({
+        }
+
+        function setColorPicker(element) {
+            //pickrInstance = element;
+
+            const defaultOptions = {
                 el: '.color-picker',
-
                 theme: 'classic',
-
-                // Custom class wich gets added to the pickr-app. Can be used to apply custom styles.
-                appClass: 'color-pickr',
-
                 position: 'right-end',
-
                 inline: false,
-
                 swatches: [],
-
-                //closeOnScroll: true,
-
                 components: {
 
                     // Main components
@@ -96,28 +92,20 @@
                     clear: labels.clear, // 'Clear' Default for clear button
                     cancel: labels.cancel // 'Cancel' Default for cancel button
                 }
-            });
+            };
+
+            const options = ctrl.options ? ctrl.options : defaultOptions;
+
+            // Create new color pickr
+            const pickr = Pickr.create(options);
 
             pickrInstance = pickr;
-
-            /*pickr.on('init', (...args) => {
-                console.log('init', args);
-                if ($scope.model.value) {
-                    pickr.setColor($scope.model.value);
-                }
-            }).on('save', (...args) => {
-                console.log('save', args);
-                console.log('color value', args[0].toHEXA().toString());
-                angularHelper.safeApply($scope, function () {
-                    $scope.model.value = args[0].toHEXA().toString();
-                });
-            }).on('cancel', instance => {
-                console.log('cancel', instance);
-            }).on('change', (...args) => {
-                console.log('change', args);
-            }).on('swatchselect', (...args) => {
-                console.log('swatchselect', args);
-            });*/
+            
+			if (ctrl.onSetup) {
+				ctrl.onSetup({
+					instance: pickrInstance
+				});
+            }
 
             // If has ngModel set the date
 			if (ctrl.ngModel) {
@@ -128,15 +116,11 @@
 			/*angular.element(element).on('$destroy', function() {
                 pickrInstance.destroy();
             });*/
-            
+
             setUpCallbacks();
 
 			// Refresh the scope
 			$scope.$applyAsync();
-        }
-
-        function setSlider(element) {
-            pickrInstance = element;
         }
 
         function setUpCallbacks() {
