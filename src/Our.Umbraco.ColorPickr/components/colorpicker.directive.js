@@ -53,7 +53,7 @@
                 const element = $element.find('.color-picker')[0];
 				setColorPicker(element);
             }, 0, true);
-            
+
         }
 
         function setColorPicker(element) {
@@ -94,7 +94,8 @@
                 }
             };
 
-            const options = ctrl.options ? ctrl.options : defaultOptions;
+            //const options = ctrl.options ? ctrl.options : defaultOptions;
+            const options = angular.extend({}, ctrl.options, defaultOptions);
 
             // Create new color pickr
             const pickr = Pickr.create(options);

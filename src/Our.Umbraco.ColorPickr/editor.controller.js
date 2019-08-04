@@ -36,6 +36,11 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
         else {
             $scope.model.config.swatches = _.pluck($scope.model.config.swatches, "value");
         }
+
+        // Setup default
+        $scope.options = {
+            inline: $scope.model.config.inlineMode
+        };
     }
 
     function setup(instance) {
@@ -53,12 +58,13 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
         //angularHelper.safeApply($scope, function () {
             $scope.color = color;
         //});
+
+        $scope.model.value = color;
     }
 
     function init() {
 
         configureDefaults();
-
 
     }
 
