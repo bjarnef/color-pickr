@@ -24,6 +24,13 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
         $scope.model.config.minVal = $scope.model.config.minVal ? parseFloat($scope.model.config.minVal) : 0;
         $scope.model.config.maxVal = $scope.model.config.maxVal ? parseFloat($scope.model.config.maxVal) : 100;
         $scope.model.config.step = $scope.model.config.step ? parseFloat($scope.model.config.step) : 1;*/
+
+        if (!$scope.model.config.swatches) {
+            $scope.model.config.swatches = [];
+        }
+        else {
+            $scope.model.config.swatches = _.pluck($scope.model.config.swatches, "value");
+        }
     }
 
     function init() {
@@ -32,9 +39,10 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
 
         vm.labels = {};
 
-        localizationService.localizeMany(["general_clear", "buttons_save"]).then(function (values) {
+        localizationService.localizeMany(["general_clear", "general_cancel", "buttons_save"]).then(function (values) {
             vm.labels.clear = values[0];
-            vm.labels.save = values[1];
+            vm.labels.cancel = values[1];
+            vm.labels.save = values[2];
         });
 
         assetsService.load([
@@ -53,6 +61,8 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
                 position: 'right-end',
 
                 inline: $scope.model.config.inlineMode,
+
+                swatches: $scope.model.config.swatches,
 
                 //closeOnScroll: true,
 
@@ -80,8 +90,8 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
                 // Button strings, brings the possibility to use a language other than English.
                 strings: {
                     save: vm.labels.save, // 'Save' Default for save button
-                    clear: 'Clear', // 'Clear' Default for clear button,
-                    cancel: 'Cancel' // 'Cancel' Default for clear button
+                    clear: 'Clear', // Default for clear button
+                    cancel: vm.labels.cancel // Default for cancel button
                 }
             });
 
@@ -96,6 +106,8 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
                 angularHelper.safeApply($scope, function () {
                     $scope.model.value = args[0].toHEXA().toString();
                 });
+            }).on('cancel', instance => {
+                console.log('cancel', instance);
             }).on('change', (...args) => {
                 console.log('change', args);
             }).on('swatchselect', (...args) => {
@@ -104,7 +116,7 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
         });
 
         // load the separate css for the editor to avoid it blocking our js loading
-        assetsService.loadCss("~/App_Plugins/Our.Umbraco.ColorPickr/pickr/themes/default.min.css", $scope);
+        assetsService.loadCss("~/App_Plugins/Our.Umbraco.ColorPickr/pickr/themes/classic.min.css", $scope);
     }
 
     init();
