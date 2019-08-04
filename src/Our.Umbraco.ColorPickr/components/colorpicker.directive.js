@@ -60,7 +60,10 @@
             //pickrInstance = element;
 
             const defaultOptions = {
-                el: '.color-picker',
+                // Selector or element which will be replaced with the actual color-picker.
+                // Can be a HTMLElement.
+                el: element, //'.color-picker',
+
                 theme: 'classic',
                 position: 'right-end',
                 inline: false,

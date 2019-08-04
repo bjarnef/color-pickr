@@ -39,7 +39,8 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
 
         // Setup default
         $scope.options = {
-            inline: $scope.model.config.inlineMode
+            inline: $scope.model.config.inlineMode,
+            swatches: $scope.model.config.swatches
         };
     }
 
