@@ -18,10 +18,11 @@
 		}
     };
     
-	function ColorPickerController($element, $timeout, $scope, assetsService, angularHelper) {
+	function ColorPickerController($element, $timeout, $scope, assetsService, localizationService, angularHelper) {
         
         const ctrl = this;
         let pickrInstance = null;
+        let labels = {};
 
 		ctrl.$onInit = function() {
 
@@ -44,6 +45,12 @@
                 const element = $element.find('.color-picker')[0];
 				setColorPicker(element);
             }, 0, true);*/
+
+            localizationService.localizeMany(["general_clear", "general_cancel", "buttons_save"]).then(function (values) {
+                labels.clear = values[0];
+                labels.cancel = values[1];
+                labels.save = values[2];
+            });
             
             // Simple example, see optional options for more configuration.
             const pickr = Pickr.create({
@@ -57,6 +64,8 @@
                 position: 'right-end',
 
                 inline: false,
+
+                swatches: [],
 
                 //closeOnScroll: true,
 
@@ -83,9 +92,9 @@
 
                 // Button strings, brings the possibility to use a language other than English.
                 strings: {
-                    save: 'Save', // 'Save' Default for save button
-                    clear: 'Clear', // Default for clear button
-                    cancel: 'Cancel' // Default for cancel button
+                    save: labels.save, // 'Save' Default for save button
+                    clear: labels.clear, // 'Clear' Default for clear button
+                    cancel: labels.cancel // 'Cancel' Default for cancel button
                 }
             });
 

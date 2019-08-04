@@ -1,6 +1,9 @@
 angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", function ($scope, assetsService, localizationService, angularHelper) {
 
     const vm = this;
+
+    vm.cancel = cancel;
+    vm.save = save;
     
     console.log("model.value", $scope.model.value);
 
@@ -33,90 +36,23 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
         }
     }
 
+    function cancel(values) {
+        console.log("cancel", values);
+    }
+
+    function save(color) {
+        console.log("save", color);
+
+        //angularHelper.safeApply($scope, function () {
+            $scope.color = color;
+        //});
+    }
+
     function init() {
 
         configureDefaults();
 
-        vm.labels = {};
-
-        localizationService.localizeMany(["general_clear", "general_cancel", "buttons_save"]).then(function (values) {
-            vm.labels.clear = values[0];
-            vm.labels.cancel = values[1];
-            vm.labels.save = values[2];
-        });
-
-        assetsService.load([
-            "~/App_Plugins/Our.Umbraco.ColorPickr/pickr/pickr.min.js"
-        ], $scope).then(function () {
-
-            // Simple example, see optional options for more configuration.
-            const pickr = Pickr.create({
-                el: '.color-picker',
-
-                theme: 'classic',
-
-                // Custom class wich gets added to the pickr-app. Can be used to apply custom styles.
-                appClass: 'color-pickr',
-
-                position: 'right-end',
-
-                inline: $scope.model.config.inlineMode,
-
-                swatches: $scope.model.config.swatches,
-
-                //closeOnScroll: true,
-
-                components: {
-
-                    // Main components
-                    preview: true,
-                    opacity: true,
-                    hue: true,
-
-                    // Input / output Options
-                    interaction: {
-                        hex: true,
-                        rgba: true,
-                        hsla: true,
-                        hsva: true,
-                        cmyk: true,
-                        input: true,
-                        clear: true,
-                        save: true,
-                        cancel: true
-                    }
-                },
-
-                // Button strings, brings the possibility to use a language other than English.
-                strings: {
-                    save: vm.labels.save, // 'Save' Default for save button
-                    clear: 'Clear', // Default for clear button
-                    cancel: vm.labels.cancel // Default for cancel button
-                }
-            });
-
-            pickr.on('init', (...args) => {
-                console.log('init', args);
-                if ($scope.model.value) {
-                    pickr.setColor($scope.model.value);
-                }
-            }).on('save', (...args) => {
-                console.log('save', args);
-                console.log('color value', args[0].toHEXA().toString());
-                angularHelper.safeApply($scope, function () {
-                    $scope.model.value = args[0].toHEXA().toString();
-                });
-            }).on('cancel', instance => {
-                console.log('cancel', instance);
-            }).on('change', (...args) => {
-                console.log('change', args);
-            }).on('swatchselect', (...args) => {
-                console.log('swatchselect', args);
-            });
-        });
-
-        // load the separate css for the editor to avoid it blocking our js loading
-        assetsService.loadCss("~/App_Plugins/Our.Umbraco.ColorPickr/pickr/themes/classic.min.css", $scope);
+        
     }
 
     init();
