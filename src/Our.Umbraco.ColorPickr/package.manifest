@@ -3,6 +3,8 @@
     {
         alias: "Our.Umbraco.ColorPickr",
         name: "Color Pickr",
+        group: "pickers",
+        icon: "icon-palette",
         editor:{
             view: "~/App_Plugins/Our.Umbraco.ColorPickr/editor.html",
             valueType: "STRING"
@@ -14,11 +16,19 @@
                    description: "Show color picker as inline.",
                    key: "inlineMode",
                    view: "boolean"
+                },
+                {
+                   label: "Swatches",
+                   description: "Swatches to be shown in the color picker.",
+                   key: "swatches",
+                   view: "~/App_Plugins/Our.Umbraco.ColorPickr/prevalues/multicolors.html",
                 }
             ]
         }
   	}],
   	javascript: [
+        "~/App_Plugins/Our.Umbraco.ColorPickr/components/colorpicker.directive.js",
+        "~/App_Plugins/Our.Umbraco.ColorPickr/prevalues/multicolors.controller.js",
     	"~/App_Plugins/Our.Umbraco.ColorPickr/editor.controller.js"
 	],
     css: [
