@@ -58,7 +58,8 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.PrevalueEditors.Mul
             if (!exists) {
                 $scope.model.value.push({
                     hexa: $scope.color.hexa,
-                    rgba: $scope.color.rgba
+                    rgba: $scope.color.rgba,
+                    rgbaCode: convertRGBtoObj($scope.color.rgba)
                 });
 
                 $scope.hasError = false;
