@@ -7,15 +7,15 @@
         </div>
     </div>
 
-    {{model.value | json}}
-
     <div ui-sortable="sortableOptions" ng-model="model.value">
         <div class="control-group umb-prevalues-multivalues__listitem" ng-repeat="item in model.value">
             <i class="icon icon-navigation handle"></i>
             <div class="umb-prevalues-multivalues__left">
                 <div class="color-picker-preview" ng-style="{'color': item.rgba }"></div>
                 <div class="color-picker-prediv">
-                    <pre>{{item.hexa}}</pre>
+                    <div class="color-hexa">{{item.hexa}}</div>
+                    <div class="color-divider">&mdash;</div>
+                    <div class="color-rgba">R: {{item.rgbaCode.r}} G: {{item.rgbaCode.g}} B: {{item.rgbaCode.b}} A: {{item.rgbaCode.a}}</div>
                 </div>
             </div>
             <div class="umb-prevalues-multivalues__right">

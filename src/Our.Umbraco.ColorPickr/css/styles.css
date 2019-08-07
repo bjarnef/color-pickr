@@ -3,6 +3,7 @@
     height: 2em;
     width: 2em;
     border-radius: .15em;
+    margin: auto 10px auto 0;
 }
 
 .color-picker-preview:before {
@@ -28,4 +29,27 @@
     border-radius: .15em;
     transition: background .3s;
     background: currentColor;
+}
+
+.color-picker-prediv {
+    display: flex;
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    flex: 0 0 auto;
+    margin: auto 10px auto 0;
+}
+
+.color-picker-prediv .color-divider {
+    margin: auto 5px;
+}
+
+.color-picker-prediv .color-hexa {
+    min-width: 80px;
+}
+
+.color-picker-prediv .color-rgba {
+    margin-left: 5px;
+    color: #989898;
+    font-size: 14px;
 }

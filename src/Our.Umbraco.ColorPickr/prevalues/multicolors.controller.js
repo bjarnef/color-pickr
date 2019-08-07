@@ -17,6 +17,13 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.PrevalueEditors.Mul
             $scope.model.value = [];
         }
 
+        if (angular.isArray($scope.model.value)) {
+            _.map($scope.model.value, function(x) {
+                x.rgbaCode = convertRGBtoObj(x.rgba);
+                return x;
+            });
+        }
+
         $scope.color = $scope.color || null;
     }
 
@@ -63,6 +70,18 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.PrevalueEditors.Mul
         //there was an error, do the highlight (will be set back by the directive)
         $scope.hasError = true;            
     };
+
+    function convertRGBtoObj(colorString)
+    {
+      const rgbKeys = ['r', 'g', 'b', 'a'];
+      let rgbObj = {};
+      let color = colorString.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
+    
+      for (let i in rgbKeys)
+        rgbObj[rgbKeys[i]] = color[i] || 1;
+    
+      return rgbObj;
+    }
 
     $scope.sortableOptions = {
         axis: 'y',
