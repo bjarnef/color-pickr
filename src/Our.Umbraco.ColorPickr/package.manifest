@@ -32,6 +32,6 @@
     	"~/App_Plugins/Our.Umbraco.ColorPickr/editor.controller.js"
 	],
     css: [
-        "~/App_Plugins/Our.Umbraco.ColorPickr/styles.css"
+        "~/App_Plugins/Our.Umbraco.ColorPickr/css/styles.css"
     ]
 }

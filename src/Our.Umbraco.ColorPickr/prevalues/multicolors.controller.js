@@ -26,14 +26,14 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.PrevalueEditors.Mul
 
     function save(color) {
         console.log("values", color);
-        $scope.color = color.hexa;
+        $scope.color = color;
     }
 
     function remove(item, evt) {
         evt.preventDefault();
 
         $scope.model.value = _.reject($scope.model.value, function (x) {
-            return x.value === item.value;
+            return x.value.hexa === item.value.hexa;
         });
         
     };
@@ -45,11 +45,14 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.PrevalueEditors.Mul
         
         if ($scope.color) {
             var exists = _.find($scope.model.value, function(item) {
-                return item.value.toUpperCase() === $scope.color.toUpperCase();
+                return item.hexa.toUpperCase() === $scope.color.hexa.toUpperCase();
             });
 
-            if (!exists) {  
-                $scope.model.value.push({ value: $scope.color });
+            if (!exists) {
+                $scope.model.value.push({
+                    hexa: $scope.color.hexa,
+                    rgba: $scope.color.rgba
+                });
 
                 $scope.hasError = false;
                 $scope.focusOnNew = true;
