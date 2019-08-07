@@ -20,13 +20,13 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.PrevalueEditors.Mul
         $scope.color = $scope.color || null;
     }
 
-    function cancel(values) {
-        console.log("cancel", values);
+    function cancel(color) {
+        console.log("cancel", color);
     }
 
     function save(color) {
-        console.log("save", color);
-        $scope.color = color;
+        console.log("values", color);
+        $scope.color = color.hexa;
     }
 
     function remove(item, evt) {

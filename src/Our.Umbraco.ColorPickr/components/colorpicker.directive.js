@@ -134,7 +134,7 @@
                 if(ctrl.onChange) {
                     pickrInstance.on('change', (...args) => {
                         $timeout(function() {
-                            ctrl.onChange(...args);
+                            ctrl.onChange({ color: { hexa: args[0].toHEXA().toString(), rgba: args[0].toRGBA().toString(0) } });
                         });
                     });
                 }
@@ -142,8 +142,9 @@
                 // bind hook for save
                 if(ctrl.onSave) {
                     pickrInstance.on('save', (...args) => {
+                        console.log("onSave", args);
                         $timeout(function() {
-                            ctrl.onSave({ color: args[0].toHEXA().toString() });
+                            ctrl.onSave({ color: { hexa: args[0].toHEXA().toString(), rgba: args[0].toRGBA().toString(0) } });
                         });
                     });
                 }
@@ -152,7 +153,7 @@
                 if(ctrl.onSwatchselect) {
                     pickrInstance.on('swatchselect', (...args) => {
                         $timeout(function() {
-                            ctrl.onSwatchselect(...args);
+                            ctrl.onSwatchselect({ color: { hexa: args[0].toHEXA().toString(), rgba: args[0].toRGBA().toString(0) } });
                         });
                     });
                 }

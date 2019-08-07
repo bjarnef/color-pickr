@@ -49,18 +49,18 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
         colorPickerRef = instance;
     }
 
-    function cancel(values) {
-        console.log("cancel", values);
+    function cancel(color) {
+        console.log("cancel", color);
     }
 
     function save(color) {
         console.log("save", color);
 
         //angularHelper.safeApply($scope, function () {
-            $scope.color = color;
+            $scope.color = color.hexa;
         //});
 
-        $scope.model.value = color;
+        $scope.model.value = color.hexa;
     }
 
     function init() {
