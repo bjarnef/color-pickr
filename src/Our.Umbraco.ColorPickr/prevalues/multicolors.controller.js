@@ -40,7 +40,7 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.PrevalueEditors.Mul
         evt.preventDefault();
 
         $scope.model.value = _.reject($scope.model.value, function (x) {
-            return x.value.hexa === item.value.hexa;
+            return x.hexa === item.hexa;
         });
         
     };

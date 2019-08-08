@@ -48,6 +48,10 @@
     min-width: 80px;
 }
 
+.color-picker-prediv .color-hexa .color-hexa-suffix {
+    color: #989898;
+}
+
 .color-picker-prediv .color-rgba {
     margin-left: 5px;
     color: #989898;

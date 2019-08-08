@@ -13,9 +13,14 @@
             <div class="umb-prevalues-multivalues__left">
                 <div class="color-picker-preview" ng-style="{'color': item.rgba }"></div>
                 <div class="color-picker-prediv">
-                    <div class="color-hexa">{{item.hexa}}</div>
+                    <div class="color-hexa">{{item.hexa}}<span ng-if="item.hexa.length < 8" class="color-hexa-suffix">FF</span></div>
                     <div class="color-divider">&mdash;</div>
-                    <div class="color-rgba">R: {{item.rgbaCode.r}} G: {{item.rgbaCode.g}} B: {{item.rgbaCode.b}} A: {{item.rgbaCode.a}}</div>
+                    <div class="color-rgba">
+                        <span>R: {{item.rgbaCode.r}}</span>
+                        <span>G: {{item.rgbaCode.g}}</span>
+                        <span>B: {{item.rgbaCode.b}}</span>
+                        <span ng-if="item.rgbaCode.a < 1">A: {{item.rgbaCode.a}}</span>
+                    </div>
                 </div>
             </div>
             <div class="umb-prevalues-multivalues__right">
