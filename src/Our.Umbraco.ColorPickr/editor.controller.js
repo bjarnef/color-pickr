@@ -34,7 +34,7 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
             $scope.model.config.swatches = [];
         }
         else {
-            $scope.model.config.swatches = _.pluck($scope.model.config.swatches, "value");
+            $scope.model.config.swatches = _.pluck($scope.model.config.swatches, "hexa");
         }
 
         // Setup default
@@ -42,6 +42,8 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
             inline: $scope.model.config.inlineMode,
             swatches: $scope.model.config.swatches
         };
+
+        console.log("options", $scope.options);
     }
 
     function setup(instance) {

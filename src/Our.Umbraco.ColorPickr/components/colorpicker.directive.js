@@ -97,8 +97,12 @@
                 }
             };
 
+            console.log("options 1", ctrl.options);
+
             //const options = ctrl.options ? ctrl.options : defaultOptions;
-            const options = angular.extend({}, ctrl.options, defaultOptions);
+            const options = angular.extend({}, defaultOptions, ctrl.options);
+
+            console.log("options 2", options);
 
             // Create new color pickr
             const pickr = Pickr.create(options);
