@@ -81,7 +81,7 @@
                         rgba: true,
                         hsla: true,
                         hsva: true,
-                        cmyk: true,
+                        cmyk: false,
                         input: true,
                         clear: true,
                         save: true,
