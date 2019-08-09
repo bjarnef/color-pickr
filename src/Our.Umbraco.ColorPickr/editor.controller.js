@@ -1,4 +1,4 @@
-angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", function ($scope, assetsService, localizationService, angularHelper) {
+angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", function ($scope, angularHelper) {
 
     const vm = this;
     let colorPickerRef = null;
@@ -6,16 +6,17 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
     vm.setup = setup;
     vm.cancel = cancel;
     vm.save = save;
+
+    vm.validateMandatory = validateMandatory;
     
     console.log("model.value", $scope.model.value);
 
-    // Method required by the valPropertyValidator directive (returns true if the property editor has at least one color selected)
-    $scope.validateMandatory = function () {
-        var isValid = !$scope.model.validation.mandatory || (
-            $scope.model.value !== null
-            && $scope.model.value !== "");
+    /**
+     * Method required by the valPropertyValidator directive
+     */
+    function validateMandatory() {
         return {
-            isValid: isValid,
+            isValid: !$scope.model.validation.mandatory || ($scope.color != null && $scope.color.length > 0),
             errorMsg: "Value cannot be empty",
             errorKey: "required"
         };
@@ -67,11 +68,8 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
     function save(color) {
         console.log("save", color);
 
-        //angularHelper.safeApply($scope, function () {
-            $scope.color = color.hexa;
-        //});
-
-        $scope.model.value = color.hexa;
+        $scope.color = color ? color.hexa : null;
+        $scope.model.value = color ? color.hexa : null;
     }
 
     function init() {
