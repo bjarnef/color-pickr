@@ -12,10 +12,11 @@
             onHide: '&?',
             onShow: '&?',
             onChange: '&?',
+            onChangeStop: '&?',
             onSave: '&?',
             onCancel: '&?',
             onClear: '&?',
-            onSwatchselect: '&?'
+            onSwatchSelect: '&?'
 		}
     };
     
@@ -133,12 +134,48 @@
 
         function setUpCallbacks() {
             if (pickrInstance) {
+                
+                // bind hook for init
+                if(ctrl.onInit) {
+                    pickrInstance.on('init', instance => {
+                        $timeout(function() {
+                            ctrl.onInit({instance: instance});
+                        });
+                    });
+                }
 
+                // bind hook for hide
+                if(ctrl.onHide) {
+                    pickrInstance.on('hide', instance => {
+                        $timeout(function() {
+                            ctrl.onHide({instance: instance});
+                        });
+                    });
+                }
+
+                // bind hook for show
+                if(ctrl.onShow) {
+                    pickrInstance.on('show', (color, instance) => {
+                        $timeout(function() {
+                            ctrl.onShow({instance: instance, color: color});
+                        });
+                    });
+                }
+                
                 // bind hook for change
                 if(ctrl.onChange) {
                     pickrInstance.on('change', (...args) => {
                         $timeout(function() {
-                            ctrl.onChange({ color: { hexa: args[0].toHEXA().toString(), rgba: args[0].toRGBA().toString(0) } });
+                            ctrl.onChange({ color: { hexa: args[0] ? args[0].toHEXA().toString() : null, rgba: args[0] ? args[0].toRGBA().toString(0) : null } });
+                        });
+                    });
+                }
+
+                // bind hook for changestop
+                if(ctrl.onChangeStop) {
+                    pickrInstance.on('changestop', instance => {
+                        $timeout(function() {
+                            ctrl.onChangeStop({instance: instance});
                         });
                     });
                 }
@@ -148,16 +185,16 @@
                     pickrInstance.on('save', (...args) => {
                         console.log("onSave", args);
                         $timeout(function() {
-                            ctrl.onSave({ color: { hexa: args[0].toHEXA().toString(), rgba: args[0].toRGBA().toString(0) } });
+                            ctrl.onSave({ color: { hexa: args[0] ? args[0].toHEXA().toString() : null, rgba: args[0] ? args[0].toRGBA().toString(0) : null } });
                         });
                     });
                 }
 
                 // bind hook for swatchselect
-                if(ctrl.onSwatchselect) {
+                if(ctrl.onSwatchSelect) {
                     pickrInstance.on('swatchselect', (...args) => {
                         $timeout(function() {
-                            ctrl.onSwatchselect({ color: { hexa: args[0].toHEXA().toString(), rgba: args[0].toRGBA().toString(0) } });
+                            ctrl.onSwatchSelect({ color: { hexa: args[0] ? args[0].toHEXA().toString() : null, rgba: args[0] ? args[0].toRGBA().toString(0) : null } });
                         });
                     });
                 }
