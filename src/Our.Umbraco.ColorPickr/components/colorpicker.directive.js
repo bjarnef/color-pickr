@@ -121,9 +121,9 @@
             }
 
             // destroy the color picker instance when the dom element is removed
-			/*angular.element(element).on('$destroy', function() {
+			angular.element(element).on('$destroy', function() {
                 pickrInstance.destroy();
-            });*/
+            });
 
             setUpCallbacks();
 
