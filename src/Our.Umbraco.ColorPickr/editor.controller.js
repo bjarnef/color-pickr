@@ -43,11 +43,20 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
             swatches: $scope.model.config.swatches
         };
 
+        if ($scope.model.value) {
+            $scope.color = $scope.model.value;
+        }
+        else {
+            $scope.color = null;
+        }
+
         console.log("options", $scope.options);
     }
 
     function setup(instance) {
         console.log("setup", instance);
+        console.log("setup value", $scope.model.value);
+
         colorPickerRef = instance;
     }
 
@@ -68,6 +77,8 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
     function init() {
 
         configureDefaults();
+
+        console.log("colorPickerRef", colorPickerRef);
 
     }
 

@@ -67,6 +67,7 @@
 
                 theme: 'classic',
                 position: 'right-end',
+                default: '000',
                 inline: false,
                 swatches: [],
                 components: {
@@ -97,13 +98,14 @@
                     cancel: labels.cancel // 'Cancel' Default for cancel button
                 }
             };
-
-            console.log("options 1", ctrl.options);
+            
+            // If has ngModel set the color
+			if (ctrl.ngModel) {
+                defaultOptions.default = ctrl.ngModel;
+            }
 
             //const options = ctrl.options ? ctrl.options : defaultOptions;
             const options = angular.extend({}, defaultOptions, ctrl.options);
-
-            console.log("options 2", options);
 
             // Create new color pickr
             const pickr = Pickr.create(options);
@@ -114,11 +116,6 @@
 				ctrl.onSetup({
 					instance: pickrInstance
 				});
-            }
-
-            // If has ngModel set the date
-			if (ctrl.ngModel) {
-                pickrInstance.setColor(ctrl.ngModel);
             }
 
             // destroy the color picker instance when the dom element is removed
