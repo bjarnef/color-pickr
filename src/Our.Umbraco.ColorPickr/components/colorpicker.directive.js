@@ -69,6 +69,7 @@
                 position: 'right-end',
                 default: '000',
                 inline: false,
+                showAlways: false,
                 swatches: [],
                 components: {
 
@@ -105,7 +106,7 @@
             }
 
             //const options = ctrl.options ? ctrl.options : defaultOptions;
-            const options = angular.extend({}, defaultOptions, ctrl.options);
+            const options = angular.extend({}, defaultOptions, ctrl.options);      
 
             // Create new color pickr
             const pickr = Pickr.create(options);
