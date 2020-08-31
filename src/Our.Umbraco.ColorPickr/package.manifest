@@ -22,6 +22,12 @@
                    description: "Swatches to be shown in the color picker.",
                    key: "swatches",
                    view: "~/App_Plugins/Our.Umbraco.ColorPickr/prevalues/multicolors.html",
+                },
+                {
+                   label: "Theme",
+                   description: "Select a color picker theme.",
+                   key: "theme",
+                   view: "~/App_Plugins/Our.Umbraco.ColorPickr/prevalues/themepicker.html",
                 }
             ]
         }
