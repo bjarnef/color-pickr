@@ -25,7 +25,8 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
     /** configure some defaults on init */
     function configureDefaults() {
         $scope.model.config.inlineMode = $scope.model.config.inlineMode ? Object.toBoolean($scope.model.config.inlineMode) : false;
-        
+        $scope.model.config.theme = $scope.model.config.theme || 'classic';
+
         if (!$scope.model.config.swatches) {
             $scope.model.config.swatches = [];
         }
@@ -36,6 +37,7 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
         // Setup default
         $scope.options = {
             inline: $scope.model.config.inlineMode,
+            theme: $scope.model.config.theme,
             showAlways: $scope.model.config.inlineMode,
             swatches: $scope.model.config.swatches
         };

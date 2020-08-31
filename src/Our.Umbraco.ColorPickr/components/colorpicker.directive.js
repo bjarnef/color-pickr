@@ -23,13 +23,18 @@
 	function ColorPickerController($element, $timeout, $scope, assetsService, localizationService, angularHelper) {
         
         const ctrl = this;
+        
         let pickrInstance = null;
         let labels = {};
+        let theme = 'classic';
 
 		ctrl.$onInit = function() {
 
+            theme = ctrl.options.theme || theme;
+            console.log("onInit theme", theme);
+
             // load css file for the color picker
-            assetsService.loadCss("~/App_Plugins/Our.Umbraco.ColorPickr/pickr/themes/classic.min.css", $scope);
+            assetsService.loadCss("~/App_Plugins/Our.Umbraco.ColorPickr/pickr/themes/" + theme + ".min.css", $scope);
 
             // load the js file for the color picker
             assetsService.load([
@@ -65,7 +70,7 @@
                 // Can be a HTMLElement.
                 el: element, //'.color-picker',
 
-                theme: 'classic',
+                theme: theme,
                 position: 'right-end',
                 default: '000',
                 inline: false,
@@ -106,7 +111,7 @@
             }
 
             //const options = ctrl.options ? ctrl.options : defaultOptions;
-            const options = angular.extend({}, defaultOptions, ctrl.options);      
+            const options = angular.extend({}, defaultOptions, ctrl.options);    
 
             // Create new color pickr
             const pickr = Pickr.create(options);
