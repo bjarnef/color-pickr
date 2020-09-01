@@ -9,7 +9,7 @@
       <iconUrl>https://raw.githubusercontent.com/bjarnef/color-pickr/master/assets/icon-128.png</iconUrl>
       <requirements type="strict">
         <major>8</major>
-        <minor>0</minor>
+        <minor>4</minor>
         <patch>0</patch>
       </requirements>
     </package>
