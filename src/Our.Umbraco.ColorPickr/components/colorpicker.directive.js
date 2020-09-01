@@ -31,7 +31,6 @@
 		ctrl.$onInit = function() {
 
             theme = ctrl.options.theme || theme;
-            console.log("onInit theme", theme);
 
             // load css file for the color picker
             assetsService.loadCss("~/App_Plugins/Our.Umbraco.ColorPickr/pickr/themes/" + theme + ".min.css", $scope);
@@ -186,7 +185,6 @@
                 // bind hook for save
                 if(ctrl.onSave) {
                     pickrInstance.on('save', (...args) => {
-                        console.log("onSave", args);
                         $timeout(function() {
                             ctrl.onSave({ color: { hexa: args[0] ? args[0].toHEXA().toString() : null, rgba: args[0] ? args[0].toRGBA().toString(0) : null } });
                         });
@@ -221,7 +219,6 @@
                 }
             }
         }
-
 
     }
     

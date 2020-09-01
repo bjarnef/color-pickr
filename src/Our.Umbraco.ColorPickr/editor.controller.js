@@ -8,8 +8,6 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
     vm.save = save;
 
     vm.validateMandatory = validateMandatory;
-    
-    console.log("model.value", $scope.model.value);
 
     /**
      * Method required by the valPropertyValidator directive
@@ -48,34 +46,23 @@ angular.module("umbraco").controller("Our.Umbraco.ColorPickr.Controller", functi
         else {
             $scope.color = null;
         }
-
-        console.log("options", $scope.options);
     }
 
     function setup(instance) {
-        console.log("setup", instance);
-        console.log("setup value", $scope.model.value);
-
         colorPickerRef = instance;
     }
 
     function cancel(color) {
-        console.log("cancel", color);
+        
     }
 
     function save(color) {
-        console.log("save", color);
-
         $scope.color = color ? color.hexa : null;
         $scope.model.value = color ? color.hexa : null;
     }
 
     function init() {
-
         configureDefaults();
-
-        console.log("colorPickerRef", colorPickerRef);
-
     }
 
     init();
