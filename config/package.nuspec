@@ -11,6 +11,7 @@
     <projectUrl>https://github.com/bjarnef/color-pickr</projectUrl>
     <description>Simple property editor for picking colors.</description>
     <tags>Umbraco, Color, Picker</tags>
+    <repository type="git" url="https://github.com/bjarnef/color-pickr" />
     <releaseNotes>
 v1.0.0
 Initial release
