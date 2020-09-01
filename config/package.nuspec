@@ -3,12 +3,12 @@
   <metadata>
     <id>Our.Umbraco.ColorPickr</id>
     <version>1.0.0</version>
-    <title>ColorPickr</title>
+    <title>Our.Umbraco.ColorPickr</title>
     <authors>Bjarne Fyrstenborg</authors>
     <owners>Bjarne Fyrstenborg</owners>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/bjarnef/color-pickr</projectUrl>
-    <iconUrl></iconUrl>
+    <!--<iconUrl></iconUrl>-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Simple property editor for picking colors.</description>
     <tags>Umbraco, Color, Picker</tags>
@@ -18,6 +18,6 @@ Initial release
     </releaseNotes>
   </metadata>
   <files>
-    <file src="..\app\App_Plugins\Switcher\**\*.*" target="content\App_Plugins\Switcher" />
+    <file src="..\src\Our.Umbraco.ColorPickr\**\*.*" target="content\App_Plugins\Our.Umbraco.ColorPickr" />
   </files>
 </package>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<umbPackage>
+  <info>
+    <package>
+      <name>Our.Umbraco.ColorPickr</name>
+      <version>1.0.0</version>
+      <iconUrl></iconUrl>
+      <licence url="https://opensource.org/licenses/MIT">MIT</licence>
+      <url>https://github.com/bjarnef/color-pickr</url>
+      <requirements type="strict">
+        <major>8</major>
+        <major>0</major>
+        <major>0</major>
+      </requirements>
+    </package>
+    <author>
+      <name>Bjarne Fyrstenborg</name>
+      <website>https://github.com/bjarnef/color-pickr</website>
+    </author>
+    <readme><![CDATA[A simple color picker property editor for Umbraco.]]></readme>
+  </info>
+  <files>
+    <folder path="../src/Our.Umbraco.ColorPickr" orgPath="App_Plugins/Our.Umbraco.ColorPickr" />
+  </files>
+  <Actions />
+  <control />
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+</umbPackage>
