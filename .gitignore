@@ -31,3 +31,5 @@ tmp/
 VersionInfo.cs
 *.nupkg
 *.zip
+
+.vscode
