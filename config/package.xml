@@ -4,9 +4,9 @@
     <package>
       <name>Our.Umbraco.ColorPickr</name>
       <version>1.0.0</version>
-      <iconUrl>https://raw.githubusercontent.com/bjarnef/color-pickr/master/assets/icon-128.png</iconUrl>
       <licence url="https://opensource.org/licenses/MIT">MIT</licence>
       <url>https://github.com/bjarnef/color-pickr</url>
+      <iconUrl>https://raw.githubusercontent.com/bjarnef/color-pickr/master/assets/icon-128.png</iconUrl>
       <requirements type="strict">
         <major>8</major>
         <minor>0</minor>
