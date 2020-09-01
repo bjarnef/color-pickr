@@ -9,8 +9,8 @@
       <url>https://github.com/bjarnef/color-pickr</url>
       <requirements type="strict">
         <major>8</major>
-        <major>0</major>
-        <major>0</major>
+        <minor>0</minor>
+        <patch>0</patch>
       </requirements>
     </package>
     <author>
