@@ -30,7 +30,9 @@
 
 		ctrl.$onInit = function() {
 
-            theme = ctrl.options.theme || theme;
+            if (ctrl.options) {
+                theme = ctrl.options.theme || theme;
+            }
 
             // load css file for the color picker
             assetsService.loadCss("~/App_Plugins/Our.Umbraco.ColorPickr/pickr/themes/" + theme + ".min.css", $scope);
