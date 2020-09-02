@@ -1,0 +1,17 @@
+{
+	"env": {
+        "browser": true
+    },
+    "rules": {
+        "comma-dangle": ["error", "never"]
+    },
+    "parserOptions": {
+        "ecmaVersion": 6
+    },
+    "globals": {
+        "angular": false,
+        "_": false,
+        "$": false,
+        "window": false
+    }
+}
