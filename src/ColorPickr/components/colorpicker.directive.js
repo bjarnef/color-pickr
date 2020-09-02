@@ -35,11 +35,11 @@
             }
 
             // load css file for the color picker
-            assetsService.loadCss("~/App_Plugins/Our.Umbraco.ColorPickr/pickr/themes/" + theme + ".min.css", $scope);
+            assetsService.loadCss("~/App_Plugins/ColorPickr/pickr/themes/" + theme + ".min.css", $scope);
 
             // load the js file for the color picker
             assetsService.load([
-                "~/App_Plugins/Our.Umbraco.ColorPickr/pickr/pickr.min.js"
+                "~/App_Plugins/ColorPickr/pickr/pickr.min.js"
             ], $scope).then(function () {
                 
                 // init color picker

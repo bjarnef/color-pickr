@@ -19,6 +19,6 @@ Initial release
   </metadata>
   <files>
     <file src="..\assets\icon-128.png" target="images\icon.png" />
-    <file src="..\src\Our.Umbraco.ColorPickr\**\*.*" target="content\App_Plugins\Our.Umbraco.ColorPickr" />
+    <file src="..\src\ColorPickr\**\*.*" target="content\App_Plugins\ColorPickr" />
   </files>
 </package>

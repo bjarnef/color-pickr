@@ -20,7 +20,7 @@
     <readme><![CDATA[A simple color picker property editor for Umbraco.]]></readme>
   </info>
   <files>
-    <folder path="../src/Our.Umbraco.ColorPickr" orgPath="App_Plugins/Our.Umbraco.ColorPickr" />
+    <folder path="../src/ColorPickr" orgPath="App_Plugins/ColorPickr" />
   </files>
   <Actions />
   <control />
