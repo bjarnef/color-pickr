@@ -19,3 +19,9 @@ Based on the great vanilla javascript plugin `Pickr` with no dependencies: https
 - Swatches for quick-selection
 
 Icon made by [Freepik](https://www.flaticon.com/authors/freepik "Freepik") from [Flaticon](https://www.flaticon.com "Flaticon").
+
+## Changelog
+
+**v1.0.0**
+
+Initial release
