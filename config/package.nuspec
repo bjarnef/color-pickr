@@ -10,6 +10,7 @@
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/bjarnef/color-pickr</projectUrl>
     <description>Simple property editor for picking colors.</description>
+    <copyright>Copyright © 2020 Bjarne Fyrstenborg</copyright>
     <tags>Umbraco, Color, Picker</tags>
     <repository type="git" url="https://github.com/bjarnef/color-pickr" />
     <releaseNotes>
