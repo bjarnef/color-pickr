@@ -4,7 +4,7 @@
         alias: "Our.Umbraco.ColorPickr",
         name: "Color Pickr",
         group: "pickers",
-        icon: "icon-palette",
+        icon: "icon-colorpicker",
         editor:{
             view: "~/App_Plugins/Our.Umbraco.ColorPickr/editor.html",
             valueType: "STRING"
