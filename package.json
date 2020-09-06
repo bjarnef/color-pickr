@@ -1,7 +1,7 @@
 {
   "private": true,
   "dependencies": {
-    "@simonwep/pickr": "1.7.2"
+    "@simonwep/pickr": "1.7.4"
   },
   "devDependencies": {
     "@babel/core": "7.11.5",
