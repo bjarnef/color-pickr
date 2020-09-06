@@ -3,7 +3,7 @@
   <info>
     <package>
       <name>Our.Umbraco.ColorPickr</name>
-      <version>1.0.0</version>
+      <version>1.0.1</version>
       <license url="http://opensource.org/licenses/MIT">MIT License</license>
       <url>https://github.com/bjarnef/color-pickr</url>
       <iconUrl>https://raw.githubusercontent.com/bjarnef/color-pickr/master/assets/icon-128.png</iconUrl>

@@ -22,6 +22,10 @@ Icon made by [Freepik](https://www.flaticon.com/authors/freepik "Freepik") from 
 
 ## Changelog
 
+**v1.0.1**
+
+- Fix: Prevent event-bubbling if representation-button gets clicked in Pickr
+
 **v1.0.0**
 
-Initial release
+- Initial release
